@@ -1,16 +1,17 @@
-import { ProductSchema } from './schemas/product.schema';
 import { Module } from '@nestjs/common';
-import { ProductController } from './product.controller';
 import { ProductService } from './product.service';
-import { MongooseModule } from '@nestjs/mongoose'
+import { ProductController } from './product.controller';
+import { MongooseModule } from '@nestjs/mongoose';
+import { ProductSchema } from './schemas/product.schema';
 
+import { MorganModule } from 'nest-morgan';
 
 @Module({
-  imports: [MongooseModule.forFeature([
-      {name: 'Product', schema: ProductSchema}
-    ])
+  imports: [
+    MorganModule.forRoot(),
+    MongooseModule.forFeature([{ name: 'Product', schema: ProductSchema }]),
   ],
-  controllers: [ProductController],
-  providers: [ProductService]
+  providers: [ProductService],
+  controllers: [ProductController]
 })
-export class ProductModule {}
+export class ProductModule { }

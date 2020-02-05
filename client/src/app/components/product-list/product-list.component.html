@@ -1,1 +1,24 @@
-<p>product-list works!</p>
+<div *ngFor="let product of products" class="card card-body mb-2 lead">
+  <div class="row">
+    <div class="col-md-8 text">
+      <ul>
+        <li hidden> id: {{product._id}} </li>
+        <li> Nombre: {{product.name}} </li>
+        <li> Descripción: {{product.description}} </li>
+        <li> Precio: {{product.price}} </li>
+        <li hidden> createdAt: {{product.createdAt}} </li>
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <img [src]="product.imageURL" class="card-img">
+    </div>
+  </div>
+  <div class="card-footer mt-4">
+    <button (click)="deleteProduct(product._id)" class="btn btn-warning ml-4">
+      Eliminar
+    </button>
+    <button [routerLink]="['/product/edit', product._id]" class="btn btn-info ml-4">
+      Editar
+    </button>
+  </div>
+</div>

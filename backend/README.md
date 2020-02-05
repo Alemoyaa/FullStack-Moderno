@@ -11,6 +11,7 @@ ApiRest creada con NestJS, MongoDB y su libreria Mongoose
 ## Ejecutar aplicación
 
 ```bash
+
 $ mongod
 
 $ npm run start

@@ -1,35 +1,40 @@
-import { CreateProductDTO } from './dto/product.dto';
-import { Product } from './interfaces/product.interface';
-import { Model } from 'mongoose';
 import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose' 
+
+import { Model } from "mongoose";
+import { InjectModel } from "@nestjs/mongoose";
+
+import { Product } from "./interfaces/product.interface";
+import { CreateProductDTO } from "./dto/product.dto";
 
 @Injectable()
 export class ProductService {
-    constructor(@InjectModel('Product') private readonly productModel: Model<Product>){}
 
-    async getProducts(): Promise<Product[]>{
-        const Products = await this.productModel.find();
-        return Products;
+    constructor(@InjectModel('Product') private readonly productModel: Model<Product>) {}
+
+    async getProducts(): Promise<Product[]> {
+        const products = await this.productModel.find();
+        return products;
     }
 
-    async getProduct(productID: string) : Promise<Product>{
-        const product = await this.productModel.findById(productID)
+    async getProduct(productID: string): Promise<Product> {
+        const product = await this.productModel.findById(productID); 
         return product;
     }
 
-    async createProduct(createPDTO: CreateProductDTO): Promise<Product>{
-        const product = new this.productModel(createPDTO);
-        return await product.save();
+    async createProduct(createProductDTO: CreateProductDTO): Promise<Product> {
+        const newProduct = new this.productModel(createProductDTO);
+        return newProduct.save();
     }
 
-    async deleteProduct(productID: String): Promise<Product>{
-        const product = await this.productModel.findByIdAndDelete(productID);
-        return product;
+    async deleteProduct(productID: string): Promise<any> {
+        const deletedProduct = await this.productModel.findByIdAndDelete(productID);
+        return deletedProduct;
     }
 
-    async updateProduct(productID: String, productNew: CreateProductDTO): Promise<Product>{
-        const updateProduct = await this.productModel.findByIdAndUpdate(productID, productNew, {new: true});
-        return updateProduct;
+    async updateProduct(productID: string, createProductDTO: CreateProductDTO): Promise<Product> {
+        const updatedProduct = await this.productModel
+                            .findByIdAndUpdate(productID, createProductDTO, {new: true});
+        return updatedProduct;
     }
+
 }
