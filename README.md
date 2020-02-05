@@ -34,3 +34,8 @@ npm install
 ```
 ng serve --o
 ```
+
+## Vista previa
+
+![Aquí la descripción de la imagen por si no carga](https://raw.githubusercontent.com/Alemoyaa/FullStack-Moderno/master/CapturaWebApp.PNG)
+
