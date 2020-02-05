@@ -12,8 +12,12 @@ Este proyecto realize una aplicación web sencilla, en la cual se utiliza el len
 ## Ejecución
 
 * Clonar el repositorio
-* Con Visual Studio Code abrimos el proyecto
-* Dentro de la carpeta `backend`, abrimos una terminal y ejecutamos:  
+* Con Visual studio code abrimos el proyecto
+* Dentro de la carpeta `Backend`, abrimos una nueva terminal y ejecutamos:  
+```
+npm install
+```
+* Una vez se descarguen todas la dependecias ejecutamos: 
 ```
 mongod
 ```
@@ -21,7 +25,12 @@ mongod
 ```
 npm run start
 ```
-* Luego nos dirigimos a la carpeta `Client`, abrimos otra terminal y ejecutamos:
+* Y con esto ya tendremos el `Backend` ejecutandose.
+* Luego nos dirigimos a la carpeta `Client`, abrimos otra terminal y ejecutamos nuevamente:
+```
+npm install
+```
+* Una vez termine la instalación, ejecutamos:
 ```
 ng serve --o
 ```
