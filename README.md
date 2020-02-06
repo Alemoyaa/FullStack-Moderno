@@ -1,6 +1,6 @@
 # CRUD Simple
 
-Este proyecto realize una aplicación web sencilla, en la cual se utiliza el lenguaje de Javascript, tanto para el frontend, como para el backend
+En este proyecto realize una aplicación web sencilla, en la cual se utiliza el lenguaje de Javascript, tanto para el frontend, como para el backend
 
 ## Tecnologias
 
